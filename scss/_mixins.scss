@@ -11,11 +11,12 @@
     align-items: $align;
 }
 
+// @mixin sizesXY($width, $height: $width) {
+//     width: $width;
+//     height: $height;
+// }
 
-
-
-
-@mixin width-params($max, $width: 100%) {
-    max-width: $max;
+@mixin sizesXY($width, $height: $width) {
     width: $width;
+    height: $height;
 }

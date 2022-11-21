@@ -3,13 +3,12 @@
     .container {
         @extend %mycontainer;
         @include goflex(row, space-around, center);
-
         background-color: lightblue;
         height: 400px;
 
         & > .box {
-            width: 150px;
-            height: 150px;
+            @include sizesXY(100px);
+
             &:first-child {
                 background-color: blue;
             }
@@ -20,6 +19,10 @@
                 background-color: red;
             }
         }
+
+        @media (max-width: $foldsize) {
+            @include goflex(column, space-around, space-around);
+        }
     }
 }
 
@@ -27,9 +30,32 @@
     .container {
         @extend %mycontainer;
         background-color: lightgreen;
-        height: 200px;
-        .text-wrapper {
-            background-color: white;
+        padding: 50px 0;
+        h2 {
+            font-size: 42px;
+            color: darkblue;
+            letter-spacing: 2px;
+            word-spacing: 5px;
+            text-transform: capitalize;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .wrapper {
+            @include goflex(row, space-around, center);
+            & > img {
+                width: 200px;
+                @media (max-width: $phone) {
+                    margin-bottom: 30px;
+                }
+            }
+            & > p {
+                width: 50%;
+                font-size: 24px;
+                color: darkblue;
+            }
+            @media (max-width: $phone) {
+                @include goflex(column, space-around, space-around);
+            }
         }
     }
 }
